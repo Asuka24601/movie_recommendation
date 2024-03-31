@@ -15,7 +15,7 @@
         </div>
         <div>
           <span class="h0-title h1-title" text="2xl">{{ item.title }} <span style="font-size: 16px;margin-bottom: 20px;">{{
-              sec2min(item.timeCost) }}</span></span>
+              sec2min(item.duration) }}</span></span>
           <span class="h0-title h3-title" text="2xl">{{ item.subtitle }}</span>
         </div>
       </div>

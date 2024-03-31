@@ -2,7 +2,7 @@
   <div class="header">
     <div class="logo">
       <router-link to="/" class="logoTo">
-        IMDb
+        TimeD.
       </router-link>
     </div>
     <div class="switch">

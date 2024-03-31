@@ -37,6 +37,7 @@
 export default {
   name: 'featuredCarouselItemVue',
   props: {
+    collection_id: String,
     pic: String,
     title: String,
     type: String,

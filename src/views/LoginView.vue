@@ -5,7 +5,7 @@
       <div class="login-title">用户登录</div>
       <el-form :model="formData" :rules="rules" ref="formDataRef">
         <el-form-item prop="username">
-          <el-input placeholder="请输入账号(用户名或密码)" v-model="formData.username" size="large" type="text">
+          <el-input placeholder="请输入邮箱" v-model="formData.email" size="large" type="text">
             <template #prefix>
               <el-icon>
                 <i-ep-user />
@@ -40,7 +40,7 @@
       <div class="login-title">用户注册</div>
       <el-form :model="registForm" :rules="registRules" ref="registFormRef">
         <el-form-item prop="username">
-          <el-input placeholder="请输入账号" v-model="registForm.username" size="large" type="text">
+          <el-input placeholder="请输入用户名" v-model="registForm.name" size="large" type="text">
             <template #prefix>
               <el-icon>
                 <i-ep-user />
@@ -93,7 +93,7 @@
       <div class="login-title">找回密码</div>
       <el-form :model="forgetPasswordForm" :rules="forgetPasswordRules" ref="registFormRef">
         <el-form-item prop="username">
-          <el-input placeholder="请输入账号" v-model="forgetPasswordForm.username" size="large" type="text">
+          <el-input placeholder="请输入用户ID" v-model="forgetPasswordForm.user_id" size="large" type="text">
             <template #prefix>
               <el-icon>
                 <i-ep-user />
@@ -128,21 +128,20 @@
 
 <script>
 import { ElMessage } from 'element-plus';
-import request from '@/js/request';      //这里使用自行封装的axios
-import { useRouter } from 'vue-router';
 import { checkEmail, checkPassword, checkUsername } from '@/js/tool';
+import { userLogin,userRegister,userForget } from '@/js/api/user';
 
 export default {
   data() {
     return {
       formData: {
-        username: "",
-        password: ""
+        email: String,
+        password: String
       },
       rules: {
-        username: [{
+        email: [{
           required: true,
-          message: "请输入用户名"
+          message: "请输入邮箱"
         }],
         password: [{
           required: true,
@@ -152,13 +151,13 @@ export default {
       isLoginPanel: true,
       isFrogetPassword: false,
       registForm: {
-        username: "",
-        password: "",
-        checkpassword: "",
-        email: ""
+        name: String,
+        password: String,
+        checkpassword: String,
+        email: String
       },
       registRules: {
-        username: [{
+        name: [{
           required: true,
           message: "请输入用户名"
         }],
@@ -176,11 +175,11 @@ export default {
         }]
       },
       forgetPasswordForm: {
-        username: "",
-        email: ""
+        user_id: String,
+        email: String
       },
       forgetPasswordRules: {
-        username: [{
+        user_id: [{
           required: true,
           message: "请输入用户名"
         }],
@@ -198,19 +197,19 @@ export default {
       if (!this.checkLoginForm()) {
         return;
       }
-      const router = useRouter();
       var form_obj = JSON.parse(JSON.stringify(this.formData));
-      request.post("/user/login", form_obj).then(res => {
+      userLogin(form_obj).then((res) => {
         if (res) {
           ElMessage({
             message: '登录成功',
             type: 'success',
           })
-          let tokenObj = { token: " isLogin", startTime: new Date().getTime() };
+          let tokenObj = { token:res, startTime: new Date().getTime() };
           window.localStorage.setItem("isLogin", JSON.stringify(tokenObj));
-          localStorage.setItem("username", JSON.parse(JSON.stringify(this.formData.username)));
-          this.$store.commit('change_user_info_login');
-          router.push("/");
+          localStorage.setItem("email", JSON.parse(JSON.stringify(this.formData.email)));
+          this.$store.commit('change_user_info', res);
+
+          this.$router.replace('/')
         } else {
           ElMessage.error('账号或密码错误！！！登录失败！！！')
         }
@@ -222,34 +221,34 @@ export default {
         return;
       }
       var form_obj = JSON.parse(JSON.stringify(this.registForm));
-      request.post("/user/regist", form_obj).then(res => {
+      userRegister(form_obj).then(res => {
         if (res) {
           ElMessage({
             message: '注册成功',
             type: 'success',
           })
           this.changePanel();
-          this.formData.username = this.registForm.username;
+          this.formData.email = this.registForm.email;
           this.formData.password = this.registForm.password;
         } else {
           ElMessage.error('注册失败！！！')
         }
       });
     },
-    changePanel(val=null) {
+    changePanel(val = null) {
       this.isFrogetPassword = false;
-      if(val===null) this.isLoginPanel = !this.isLoginPanel;
+      if (val === null) this.isLoginPanel = !this.isLoginPanel;
       else this.isLoginPanel = val;
     },
     checkLoginForm() {
-      if (!checkUsername(this.formData.username)) {
-        ElMessage.error('用户名格式不正确！(4到16位,可以用字母,数字,下划线,减号)');
-        return false;
-      }
-      if (!checkPassword(this.formData.password)) {
-        ElMessage.error('密码格式不正确！(最少6位,包括至少1个大写字母,1个小写字母,1个数字,1个特殊字符)');
-        return false;
-      }
+      // if (!checkEmail(this.formData.email)) {
+      //   ElMessage.error('邮箱格式不正确！(4到16位,可以用字母,数字,下划线,减号)');
+      //   return false;
+      // }
+      // if (!checkPassword(this.formData.password)) {
+      //   ElMessage.error('密码格式不正确！(最少6位,最多16位)');
+      //   return false;
+      // }
       return true;
     },
     checkRegistForm() {
@@ -262,7 +261,7 @@ export default {
         return false;
       }
       if (!checkPassword(this.registForm.password)) {
-        ElMessage.error('密码格式不正确！(最少6位,包括至少1个大写字母,1个小写字母,1个数字,1个特殊字符)');
+        ElMessage.error('密码格式不正确！(最少6位,最多16位)');
         return false;
       }
       if (!checkEmail(this.registForm.email)) {
@@ -288,18 +287,18 @@ export default {
         return;
       }
       var form_obj = JSON.parse(JSON.stringify(this.forgetPasswordForm));
-      request.post("/user/forgetPassword", form_obj).then(res => {
-        if (res) {
+      userForget(form_obj).then((res)=>{
+        if (res) ElMessage({
+          message: '请查看邮箱',
+          type: 'success',
+        })
+        else {
           ElMessage({
-            message: '找回密码成功',
-            type: 'success',
+            message: '大失败！',
+            type: 'error',
           })
-          this.changePanel(true);
-          this.formData.username = this.forgetPasswordForm.username;
-        } else {
-          ElMessage.error('找回密码失败！！！')
         }
-      });
+      })
     },
     changeForgetPasswordPanel() {
       this.isFrogetPassword = true;
@@ -311,10 +310,11 @@ export default {
 
 <style scoped>
 .login-body {
-  background: url("../assets/test.png") no-repeat center center;
+  /* background: url("../assets/test.png") no-repeat center center; */
   height: 100%;
   width: 100%;
   background-size: cover;
+  background-color: white;
   position: absolute;
   left: 0;
   top: 0;

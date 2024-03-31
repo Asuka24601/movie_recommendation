@@ -1,15 +1,18 @@
 <template>
+  <div v-if="this.$store.getters.get_user_info_login" id="wlv">
+<WatchListView />
+  </div>
   <el-container>
-    <el-header style="height: 3vh;">
+    <el-header style="height: 5vh;">
       <HeaderVue></HeaderVue>
     </el-header>
-    <el-main style="height: 97vh;">
+    <el-main style="height: 95vh; padding-top: 0;padding-bottom: 0;">
       <el-container>
         <el-aside width="10vw">
           <MenuVue></MenuVue>
         </el-aside>
-        <el-main>
-          <div style="height: 87vh;
+        <el-main style="padding-bottom: 0;">
+          <div style="height: 93vh;
                       overflow-y: hidden;
                       overflow-x: hidden;">
             <el-scrollbar style="height: 100%;">
@@ -26,6 +29,7 @@
 <script>
 import MenuVue from '@/components/Menu.vue'
 import HeaderVue from '@/components/Header.vue'
+import WatchListView from '@/views/WatchListView.vue'
 
 export default {
   setup() {
@@ -55,7 +59,8 @@ export default {
   name: 'App',
   components: {
     MenuVue,
-    HeaderVue
+    HeaderVue,
+    WatchListView
   },
 }
 </script>
@@ -67,5 +72,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#wlv {
+  position: absolute;
+  border: #2c3e50 solid 1px;
+  background-color: #2c3e50;
+  left: 4rem;
+  bottom: 3rem;
+}
+
+body {
+  margin: 0;
 }
 </style>

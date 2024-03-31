@@ -12,7 +12,7 @@
                 <VideoPlay />
               </el-icon>
               <div class="hat-span">
-                <span>{{ sec2min(item.timeCost) }}</span>
+                <span>{{ sec2min(item.duration) }}</span>
               </div>
             </div>
           </el-header>
@@ -97,4 +97,4 @@ export default {
   font-size: 1rem;
   margin-bottom: 20px;
 }
-</style>./nextCarouselItem.vue
+</style>

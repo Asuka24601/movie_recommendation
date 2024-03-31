@@ -9,7 +9,7 @@
     </div>
     <!-- 中间列表 -->
     <div :id="String(listId) + 'list-box'" class="list-box">
-      <div :id="String(listId) + 'list'" class="list">
+      <div :id="String(listId) + 'list'" class="list" :style="'width:'+listWidth+';'">
 
         <featuredCarouselItemVue :id="String(listId) + 'mvCard'"
                                  v-for="item in monitorList"
@@ -38,7 +38,8 @@ export default {
   name: 'featuredScrollListVue',
   props: {
     monitorList: Array,
-    listId: Number
+    listId: Number,
+    listWidth: String,
   },
   components: {
     featuredCarouselItemVue
@@ -139,4 +140,4 @@ export default {
   background-color: #409eff;
   color: white;
 }
-</style>../carousel/featuredCarouselItem.vue
+</style>

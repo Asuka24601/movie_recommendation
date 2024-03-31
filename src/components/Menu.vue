@@ -14,7 +14,7 @@
                 <House />
               </el-icon>
               <template #title>
-                <span>Home</span>
+                <span>{{ '首页' }}</span>
               </template>
             </el-menu-item>
           </router-link>
@@ -23,55 +23,73 @@
 
             <template #title>
               <el-icon>
-                <House />
+                <Film />
               </el-icon>
-              <span>电影</span>
+              <span>{{ '电影' }}</span>
             </template>
-            <el-menu-item index="1-1">正在热映</el-menu-item>
-            <el-menu-item index="1-2">即将上映</el-menu-item>
-            <el-menu-item index="1-3">经典影片</el-menu-item>
+            <router-link to="/movies/populer" class="menu-item">
+              <el-menu-item index="1-1">{{ '正在热映' }}</el-menu-item>
+            </router-link>
+            <router-link to="/movies/comingsoon" class="menu-item">
+              <el-menu-item index="1-2">{{ '即将上映' }}</el-menu-item>
+            </router-link>
+            <router-link to="/movies" class="menu-item">
+              <el-menu-item index="1-3">
+                {{ '所有影片' }}
+              </el-menu-item>
+            </router-link>
           </el-sub-menu>
 
           <el-sub-menu index="3">
 
             <template #title>
               <el-icon>
-                <House />
+                <Medal />
               </el-icon>
-              <span>奖项/活动</span>
+              <span>{{ '奖项/活动' }}</span>
             </template>
-            <el-menu-item index="3-1">金球奖</el-menu-item>
-            <el-menu-item index="3-2">奥斯卡</el-menu-item>
-            <el-menu-item index="3-3">戛纳电影节</el-menu-item>
+            <el-menu-item index="3-1">{{ '金球奖' }}</el-menu-item>
+            <el-menu-item index="3-2">{{ '奥斯卡' }}</el-menu-item>
+            <el-menu-item index="3-3">{{ '戛纳电影节' }}</el-menu-item>
+            <router-link to="/activity" class="menu-item">
+              <el-menu-item index="3-4">
+                {{ '更多活动' }}
+              </el-menu-item>
+            </router-link>
           </el-sub-menu>
           <el-sub-menu index="4">
 
             <template #title>
               <el-icon>
-                <House />
+                <Connection />
               </el-icon>
-              <span>社区</span>
+              <span>{{ '社区' }}</span>
             </template>
-            <el-menu-item index="4-1">个人中心</el-menu-item>
-            <el-menu-item index="4-2">广场</el-menu-item>
-            <el-menu-item index="4-3">电影圈</el-menu-item>
+            <router-link to="/community" class="menu-item">
+              <el-menu-item index="4-1">
+                {{ '中央大厅' }}
+              </el-menu-item>
+            </router-link>
+            <el-menu-item index="4-2">{{ '新闻部' }}</el-menu-item>
+            <el-menu-item index="4-3">{{ '影星广场' }}</el-menu-item>
+            <el-menu-item index="4-4">{{ '电影圈' }}</el-menu-item>
           </el-sub-menu>
           <el-sub-menu index="5">
 
             <template #title>
               <el-icon>
-                <House />
+                <More />
               </el-icon>
-              <span>更多</span>
+              <span>{{ '更多' }}</span>
             </template>
             <router-link to="/about" class="menu-item">
               <el-menu-item index="5-1">
-                About
+                {{ '关于' }}
               </el-menu-item>
             </router-link>
 
-            <el-menu-item index="5-2">联系我们</el-menu-item>
-            <el-menu-item index="5-3">帮助</el-menu-item>
+            <el-menu-item index="5-2">{{ '联系我们' }}</el-menu-item>
+            <el-menu-item index="5-3">{{ '帮助' }}</el-menu-item>
           </el-sub-menu>
         </el-menu>
       </el-scrollbar>
@@ -90,109 +108,18 @@
     </el-button>
   </div>
 
+  <avatarItemVue></avatarItemVue>
 
-
-  <!-- <el-radio-group v-model="isCollapse" style="margin-top: 7vh">
-    <el-radio-button :value="false">expand</el-radio-button>
-    <el-radio-button :value="true">collapse</el-radio-button>
-  </el-radio-group> -->
-
-  <div class="avatar">
-    <el-popover placement="top" :width="100" trigger="click">
-
-      <template #reference>
-        <el-col :span="12">
-          <el-badge class="item" :max="99" :show-zero="false" :value="get_user_info.user_message_count">
-            <el-avatar :size="50" :src="get_user_info.user_avatar"></el-avatar>
-          </el-badge>
-          <div>
-            <el-button type="text" style="color: #000000">{{ get_user_info.user_name }}</el-button>
-          </div>
-        </el-col>
-      </template>
-
-      <el-row :gutter="30" :align="'middle'" :justify="'center'" class="user_info_menu">
-        <div v-if="get_user_info.user_login">
-          <el-col :span="12">
-            <el-row>
-              <el-col :span="24">
-                <el-button type="text" style="color: #000000">
-                  <el-icon>
-                    <User />
-                  </el-icon>
-                  <span>
-                    {{ '个人中心' }}
-                  </span>
-                </el-button>
-              </el-col>
-            </el-row>
-            <el-row>
-              <el-col :span="24">
-                <el-button type="text" style="color: #000000">
-                  <el-icon>
-                    <Message />
-                  </el-icon>
-                  <span>
-                    {{ '消息' }}
-                  </span>
-                </el-button>
-              </el-col>
-            </el-row>
-            <el-row>
-              <el-col :span="24">
-                <el-button type="text" @click="change_user_login" style="color: #000000">
-                  <el-icon color="#ff7970">
-                    <Close />
-                  </el-icon>
-                  <span>
-                    {{ '退出登入' }}
-                  </span>
-                </el-button>
-              </el-col>
-            </el-row>
-          </el-col>
-        </div>
-        <div v-else>
-          <el-col :span="12">
-            <el-row>
-              <el-col :span="24">
-                <el-button type="text" @click="change_user_login" style="color: #000000">
-                  <el-icon color="#ff7970">
-                    <User />
-                  </el-icon>
-                  <span>
-                    {{ '登入/注册' }}
-                  </span>
-                </el-button>
-              </el-col>
-            </el-row>
-          </el-col>
-        </div>
-      </el-row>
-
-    </el-popover>
-
-  </div>
-
-  <!-- <el-button @click="change_isCollapse" style="margin-top: 7vh">
-    <div v-if="aside_menu_isCollapsed">
-      <el-icon>
-        <Expand />
-      </el-icon>
-    </div>
-    <div v-else>
-      <el-icon>
-        <Fold />
-      </el-icon>
-    </div>
-  </el-button> -->
 </template>
 
 <script>
-// import { useRouter } from 'vue-router';
+import avatarItemVue from './menu/avatarItem.vue'
 
 export default {
   name: 'MenuVue',
+  components: {
+    avatarItemVue
+  },
   data() {
     return {
       user_info: this.$store.state.user_info,
@@ -202,12 +129,6 @@ export default {
     aside_menu_isCollapsed() {
       return this.$store.state.opentions.aside_menu_isCollapsed
     },
-    user_info_isLogin() {
-      return this.$store.getters.get_user_info_login;
-    },
-    get_user_info() {
-      return this.$store.getters.get_user_info;
-    }
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -218,13 +139,6 @@ export default {
     },
     change_isCollapse() {
       this.$store.commit('change_aside_menu_isCollapsed')
-    },
-    change_user_login() {
-      if (!this.$store.getters.get_user_info_login) {
-        this.$router.push('/login')
-        // useRouter().push('/login')
-      }
-      else this.$store.commit('change_user_info_login')
     },
   }
 }
@@ -272,19 +186,4 @@ el-scrollbar.el-scrollbar__wrap {
   overflow-x: hidden;
   overflow-y: hidden;
 }
-
-.avatar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2vh;
-}
-
-/* .user_info_menu {
-  
-} */
-
-/* .menu-item:hover {
-  text-decoration: underline;
-} */
 </style>

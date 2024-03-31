@@ -12,9 +12,24 @@ export const min2sec = (min) => {
     return parseInt(time[0]) * 60 + parseInt(time[1]);
 }
 
-// check the password (最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符)
+// covert minutes to hh mm
+export const min2hour = (min) => {
+  const hour = Math.floor(min / 60);
+  const minute = min % 60;
+  if (hour > 0 && minute > 0) {
+    return hour + 'h ' + minute + 'm';
+  }
+  if (hour > 0 && minute === 0) {
+    return hour + 'h';
+  }
+  if (hour === 0 && minute > 0) {
+    return minute + 'm';
+  }
+}
+
+// check the password (最少6位,最多16位)
 export const checkPassword = (password) => {
-  const reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+  const reg = /^.{6,16}$/gm;
   return reg.test(password);
 }
 
@@ -34,4 +49,11 @@ export const checkPhone = (phone) => {
 export const checkUsername = (username) => {
   const reg = /^[a-zA-Z0-9_-]{4,16}$/;
   return reg.test(username);
+}
+
+//check the full span
+export const checkFullSpan = (str)=>{
+  if (typeof str !== 'string') return false
+  const test = str.trim();
+  return test.match(/^\s+$/)||(test.length==0)
 }

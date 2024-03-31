@@ -1,33 +1,34 @@
 <template>
 
-      <div class="monitor-list">
-        <!-- 左边按钮 -->
-        <div class="btn" @click="scrollLeft">
-          <el-icon>
-            <ArrowLeft />
-          </el-icon>
-        </div>
-        <!-- 中间列表 -->
-        <div :id="String(listId)+'list-box'" class="list-box">
-          <div :id="String(listId)+'list'" class="list">
+  <div class="monitor-list">
+    <!-- 左边按钮 -->
+    <div class="btn" @click="scrollLeft">
+      <el-icon>
+        <ArrowLeft />
+      </el-icon>
+    </div>
+    <!-- 中间列表 -->
+    <div :id="String(listId) + 'list-box'" class="list-box">
+      <div :id="String(listId) + 'list'" class="list">
 
-            <movieCard :id="String(listId)+'mvCard'"
-                       v-for="item in monitorList"
-                       :key="item" class="list-item"
-                       :poster_path="item.poster_path"
-                       :title="item.title"
-                       :subtitle="item.subtitle"
-                       :rating="item.rating" />
-
-          </div>
-        </div>
-        <!-- 右边按钮 -->
-        <div class="btn" @click="scrollRight">
-          <el-icon>
-            <ArrowRight />
-          </el-icon>
+        <div :id="String(listId) + 'mvCard'" v-for="item in monitorList" :key="item" class="list-item">
+          <movieCard
+                     :poster_url="item.poster_url"
+                     :title="item.title"
+                     :subtitle="item.subtitle"
+                     :rating="item.rating"
+                     :movie_id="item.movie_id"
+                     :trailer_url="item.trailer_url" />
         </div>
       </div>
+    </div>
+    <!-- 右边按钮 -->
+    <div class="btn" @click="scrollRight">
+      <el-icon>
+        <ArrowRight />
+      </el-icon>
+    </div>
+  </div>
 
 </template>
 
@@ -47,11 +48,11 @@ export default {
     // 左滑动逻辑
     scrollLeft() {
       const marginR = getComputedStyle(document.getElementById(String(this.listId) + 'mvCard'), null).marginRight;
-      const itemLength = document.getElementById(String(this.listId) + 'mvCard').offsetWidth + parseInt(marginR.substring(0,marginR.length-2)) * 2;
+      const itemLength = document.getElementById(String(this.listId) + 'mvCard').offsetWidth + parseInt(marginR.substring(0, marginR.length - 2)) * 2;
       const allLength = itemLength * this.monitorList.length;
       const boxLength = document.getElementById(String(this.listId) + 'list-box').offsetWidth;
       if (allLength < boxLength) return
-      const listEl = document.getElementById(String(this.listId)+'list')
+      const listEl = document.getElementById(String(this.listId) + 'list')
       const leftMove = Math.abs(parseInt(window.getComputedStyle(listEl, null)?.left))
       if (leftMove + boxLength - itemLength < boxLength) {
         // 到最开始的时候
@@ -63,11 +64,11 @@ export default {
     // 右滑动逻辑
     scrollRight() {
       const marginR = getComputedStyle(document.getElementById(String(this.listId) + 'mvCard'), null).marginRight;
-      const itemLength = document.getElementById(String(this.listId) + 'mvCard').offsetWidth + parseInt(marginR.substring(0,marginR.length-2)) * 2;
+      const itemLength = document.getElementById(String(this.listId) + 'mvCard').offsetWidth + parseInt(marginR.substring(0, marginR.length - 2)) * 2;
       const allLength = itemLength * this.monitorList.length;
       const boxLength = document.getElementById(String(this.listId) + 'list-box').offsetWidth;
       if (allLength < boxLength) return
-      const listEl = document.getElementById(String(this.listId)+'list')
+      const listEl = document.getElementById(String(this.listId) + 'list')
       const leftMove = Math.abs(parseInt(window.getComputedStyle(listEl, null)?.left))
       if (leftMove + boxLength + itemLength > allLength) {
         listEl.style.left = '-' + (allLength - boxLength) + 'px'
@@ -103,7 +104,6 @@ export default {
 
 .list-item {
   flex-grow: 1;
-  cursor: pointer;
   margin: .75rem;
 }
 

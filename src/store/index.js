@@ -5,17 +5,16 @@ export default createStore({
     opentions: {
       aside_menu_isCollapsed:false,
       i18n_local: 'zh',
-      themeIsDark: false
+      themeIsDark: false,
     },
     user_info: {
-      user_id : 0,
-      // user_id用户id（0：游客，非0正整数：用户）
-      user_identiy: 0,
+      user_id : '0',
+      // user_id用户id（0：游客，非0：用户）
+      user_type: 0,
       // user_identiy用户身份（0：游客，1：注册用户，2：管理员）
-      user_login: true,
-      user_name: '游客',
-      user_message_count: 0,
-      user_avatar: 'https://img2.woyaogexing.com/2021/07/14/3d3e8c5f1b7f4b3c9b8b8d6b5c6a3e8f!400x400.jpeg'
+      name: '游客',
+      message_count: 0,
+      avatar: 'https://img2.woyaogexing.com/2021/07/14/3d3e8c5f1b7f4b3c9b8b8d6b5c6a3e8f!400x400.jpeg'
     }
   },
   getters: {
@@ -29,10 +28,13 @@ export default createStore({
       return state.user_info
     },
     get_user_info_login(state){
-      return state.user_info.user_login
+      return state.user_info.user_type !== 0
     },
     get_themeIsDark(state){
       return state.opentions.themeIsDark
+    },
+    get_user_id(state) {
+      return state.user_info.user_id
     }
 
   },
@@ -43,12 +45,12 @@ export default createStore({
     change_opentions_i18n_local(state,local){
       state.opentions.i18n_local = local
     },
-    change_user_info_login(state){
-      state.user_info.user_login = !state.user_info.user_login
-    },
     change_themeIsDark(state, themeIsDark){
       state.opentions.themeIsDark = themeIsDark
       console.log(state.opentions.themeIsDark)
+    },
+    change_user_info(state, user_info){
+      state.user_info = user_info
     }
   },
   actions: {

@@ -4,7 +4,7 @@
       <span class="h0-title h1-title">{{ '今日推荐' }}</span>
     </el-header>
     <el-main style="width: 65%;">
-      <featuredScrollListVue :monitorList="items" :listId="0" />
+      <featuredScrollListVue :monitorList="items" listWidth="200%" :listId="0" />
     </el-main>
   </el-container>
 </template>
@@ -70,4 +70,4 @@ export default {
   height: 30vh;
   width: 100%;
 }
-</style>./scrollList/featuredScrollList.vue
+</style>
