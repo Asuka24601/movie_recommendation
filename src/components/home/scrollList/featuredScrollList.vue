@@ -14,7 +14,7 @@
         <featuredCarouselItemVue :id="String(listId) + 'mvCard'"
                                  v-for="item in monitorList"
                                  :key="item" class="list-item"
-                                 :pic="item.pic"
+                                 :pic_url="item.pic_url"
                                  :title="item.title"
                                  :type="item.type"
                                  :getMore="item.getMore" />

@@ -1,11 +1,11 @@
 <template>
   <div class="item-body">
     <div class="item-main">
-      <img :src="item.pic" class="header-img">
+      <img :src="item.pic_url" class="header-img">
     </div>
     <div class="sub-item">
       <div class="sub-aside">
-        <img :src="item.poster" class="footer-img">
+        <img :src="item.poster_url" class="footer-img">
       </div>
       <div class="sub-main">
         <div>
@@ -127,4 +127,4 @@ export default {
   width: 70%;
   /* bottom: 7vh; */
 }
-</style>./homeCarouselItem.vue
+</style>

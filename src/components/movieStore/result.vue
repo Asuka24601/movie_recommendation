@@ -74,7 +74,7 @@ export default {
     },
     fetchData(flag=false) {
       console.log('fetch data')
-      this.Data = MF.get_data(this.offset, this.pageSize).data.data
+      this.Data = MF.get_data(this.offset, this.pageSize).result.data
       if (flag) {
         this.total = MF.get_Data_from_backend_count();
       }

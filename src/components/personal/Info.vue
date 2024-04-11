@@ -21,7 +21,7 @@
             <el-icon>
               <User />
             </el-icon>
-            账户名
+            用户ID
           </template>
           {{ user_id }}
         </el-descriptions-item>
@@ -39,21 +39,19 @@
             <el-icon>
               <Odometer />
             </el-icon>
-            年龄
+            出生日期
           </template>
           {{ birthday }}
         </el-descriptions-item>
         <el-descriptions-item>
           <template #label>
             <el-icon>
-              <Male />
-            </el-icon>
-            <el-icon>
-              <Female />
+              <Male v-if="gender===0"/>
+              <Female v-else/>
             </el-icon>
             性别
           </template>
-          <el-tag size="small">{{ gender }}</el-tag>
+          <el-tag size="small">{{ gender===0?'男':'女' }}</el-tag>
         </el-descriptions-item>
         <el-descriptions-item>
           <template #label>
@@ -123,9 +121,9 @@ export default {
         .then((res) => {
           this.avatar = res.avatar;
           this.user_id = res.user_id;
-          this.birthday = res.birthday;
-          this.email = res.email;
-          this.phone = res.phone;
+          this.birthday = '2012-12-31'
+          this.email = 'default@example.com'
+          this.phone = '1008611';
           this.createTime = res.createTime;
           this.name = res.name;
           this.gender = res.gender;

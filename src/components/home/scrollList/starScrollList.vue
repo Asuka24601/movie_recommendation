@@ -14,7 +14,7 @@
         <starCardVue :id="String(listId) + 'mvCard'"
                                  v-for="item in monitorList"
                                  :key="item" class="list-item"
-                                 :pic="item.pic"
+                                 :pic_url="item.pic_url"
                                  :name="item.name"
                                  :age="item.age"/>
 

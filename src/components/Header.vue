@@ -2,7 +2,7 @@
   <div class="header">
     <div class="logo">
       <router-link to="/" class="logoTo">
-        TimeD.
+        <span>Movie</span>
       </router-link>
     </div>
     <div class="switch">
@@ -90,12 +90,13 @@ export default {
 }
 
 .logo {
-  background-color: #f5c518;
+  color: #fff;
+  background-color: #18c9f5;
   padding: 2px 5px;
 }
 
 .logoTo {
-  color: #333;
+  color: #fff;
   font-weight: bold;
   font-size: 24px;
   text-decoration: none;

@@ -2,7 +2,7 @@
   <el-card>
     <el-container style="background-color: white; color: black;">
       <el-asider style="width: 40%;">
-        <el-image :src="item.poster" fit="cover" class="poster-img" />
+        <el-image :src="item.poster_url" fit="cover" class="poster-img" />
       </el-asider>
       <el-main style="width: 60%;">
         <el-container>

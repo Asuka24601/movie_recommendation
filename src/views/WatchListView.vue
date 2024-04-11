@@ -32,7 +32,7 @@
 
 <script lang='js'>
 import watchListDisplayVue from '@/components/watchList/watchListDisplay.vue';
-import {userWatchList} from '@/js/api/user.js';
+import {watchlist} from '@/js/api/watchlist';
 import {moviesInfo} from '@/js/api/movie.js';
 
 export default {
@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     load() {
-      userWatchList().then(res => {
+      watchlist().then(res => {
         this.total = res.length;
         const ans = [];
         res.forEach(e=>{

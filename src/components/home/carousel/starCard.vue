@@ -1,7 +1,7 @@
 <template>
   <el-card class="card-cont">
     <div class="pic">
-      <el-image :src="pic" :alt="name" fit="cover" />
+      <el-image :src="pic_url" :alt="name" fit="cover" />
     </div>
     <div class="name">
       <span>{{ name }}</span>
@@ -18,7 +18,7 @@ export default {
   props: {
     actors_id: String,
     name: String,
-    pic: String,
+    pic_url: String,
     age: Number,
   }
 }

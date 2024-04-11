@@ -2,7 +2,7 @@
   <el-card>
     <div class="mymain">
       <div class="pic">
-        <el-image :src="pic" alt="" fit="cover" class="info-p" />
+        <el-image :src="pic_url" alt="" fit="cover" class="info-p" />
         <div class="info">
           <div>
             <div v-if="(type === '清单' | 'List')">
@@ -38,7 +38,7 @@ export default {
   name: 'featuredCarouselItemVue',
   props: {
     collection_id: String,
-    pic: String,
+    pic_url: String,
     title: String,
     type: String,
     getMore: String,

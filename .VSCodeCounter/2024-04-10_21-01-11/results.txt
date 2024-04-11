@@ -1,0 +1,148 @@
+Date : 2024-04-10 21:01:11
+Directory : d:\DEV\paper\formend\movie_recommendation
+Total : 91 files,  30045 codes, 174 comments, 649 blanks, all 30868 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          3 |     21,488 |          0 |          2 |     21,490 |
+| Vue                |         59 |      6,094 |         50 |        495 |      6,639 |
+| JavaScript         |         24 |      2,391 |        115 |        142 |      2,648 |
+| Markdown           |          1 |         19 |          0 |          6 |         25 |
+| JSON with Comments |          1 |         19 |          0 |          1 |         20 |
+| HTML               |          1 |         16 |          1 |          1 |         18 |
+| CSS                |          1 |         16 |          8 |          1 |         25 |
+| Properties         |          1 |          2 |          0 |          1 |          3 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                     | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                        |         91 |     30,045 |        174 |        649 |     30,868 |
+| . (Files)                                                                                                |          7 |     21,545 |          0 |         13 |     21,558 |
+| public                                                                                                   |          1 |         16 |          1 |          1 |         18 |
+| src                                                                                                      |         83 |      8,484 |        173 |        635 |      9,292 |
+| src (Files)                                                                                              |          3 |        117 |          6 |         15 |        138 |
+| src\assets                                                                                               |          1 |         16 |          8 |          1 |         25 |
+| src\components                                                                                           |         47 |      4,824 |         41 |        377 |      5,242 |
+| src\components (Files)                                                                                   |          5 |        400 |          0 |         48 |        448 |
+| src\components\home                                                                                      |         16 |      1,955 |         30 |        166 |      2,151 |
+| src\components\home (Files)                                                                              |          5 |        833 |         18 |         30 |        881 |
+| src\components\home\carousel                                                                             |          6 |        565 |          0 |         69 |        634 |
+| src\components\home\scrollList                                                                           |          5 |        557 |         12 |         67 |        636 |
+| src\components\menu                                                                                      |          1 |        106 |          0 |          2 |        108 |
+| src\components\movieStore                                                                                |         16 |      1,658 |          5 |        107 |      1,770 |
+| src\components\movieStore (Files)                                                                        |          4 |        278 |          4 |         26 |        308 |
+| src\components\movieStore\filiterMenu                                                                    |          7 |      1,006 |          1 |         49 |      1,056 |
+| src\components\movieStore\resultItems                                                                    |          5 |        374 |          0 |         32 |        406 |
+| src\components\personal                                                                                  |          8 |        658 |          6 |         49 |        713 |
+| src\components\watchList                                                                                 |          1 |         47 |          0 |          5 |         52 |
+| src\js                                                                                                   |         17 |      2,132 |         89 |        114 |      2,335 |
+| src\js (Files)                                                                                           |          5 |      1,252 |         24 |         44 |      1,320 |
+| src\js\api                                                                                               |         12 |        880 |         65 |         70 |      1,015 |
+| src\langurage                                                                                            |          1 |         28 |          1 |          7 |         36 |
+| src\router                                                                                               |          1 |        120 |         17 |          7 |        144 |
+| src\store                                                                                                |          1 |         56 |          2 |          3 |         61 |
+| src\undefined                                                                                            |          1 |          3 |          0 |          0 |          3 |
+| src\views                                                                                                |         11 |      1,188 |          9 |        111 |      1,308 |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                 | language           | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| d:\DEV\paper\formend\movie_recommendation\.env                                                           | Properties         |          2 |          0 |          1 |          3 |
+| d:\DEV\paper\formend\movie_recommendation\README.md                                                      | Markdown           |         19 |          0 |          6 |         25 |
+| d:\DEV\paper\formend\movie_recommendation\babel.config.js                                                | JavaScript         |          5 |          0 |          1 |          6 |
+| d:\DEV\paper\formend\movie_recommendation\jsconfig.json                                                  | JSON with Comments |         19 |          0 |          1 |         20 |
+| d:\DEV\paper\formend\movie_recommendation\package-lock.json                                              | JSON               |     21,430 |          0 |          1 |     21,431 |
+| d:\DEV\paper\formend\movie_recommendation\package.json                                                   | JSON               |         55 |          0 |          1 |         56 |
+| d:\DEV\paper\formend\movie_recommendation\public\index.html                                              | HTML               |         16 |          1 |          1 |         18 |
+| d:\DEV\paper\formend\movie_recommendation\src\App.vue                                                    | Vue                |         82 |          0 |          7 |         89 |
+| d:\DEV\paper\formend\movie_recommendation\src\assets\base.css                                            | CSS                |         16 |          8 |          1 |         25 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\Header.vue                                      | Vue                |        120 |          0 |         11 |        131 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\HelloI18n.vue                                   | Vue                |         25 |          0 |          6 |         31 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\Menu.vue                                        | Vue                |        170 |          0 |         19 |        189 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\RightArrow.vue                                  | Vue                |         20 |          0 |          3 |         23 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\banner.vue                                 | Vue                |        119 |          7 |          9 |        135 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\carousel\featuredCarouselItem.vue          | Vue                |         96 |          0 |          9 |        105 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\carousel\homeCarouselItem.vue              | Vue                |        114 |          0 |         16 |        130 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\carousel\movieCard.vue                     | Vue                |        128 |          0 |         15 |        143 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\carousel\newsCard.vue                      | Vue                |         79 |          0 |         11 |         90 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\carousel\nextCarouselItem.vue              | Vue                |         89 |          0 |         11 |        100 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\carousel\starCard.vue                      | Vue                |         59 |          0 |          7 |         66 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\explore.vue                                | Vue                |        170 |         11 |          6 |        187 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\featured.vue                               | Vue                |         68 |          0 |          5 |         73 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\recent.vue                                 | Vue                |         99 |          0 |          3 |        102 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\scrollList\emptyMovieList.vue              | Vue                |         56 |          0 |          8 |         64 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\scrollList\featuredScrollList.vue          | Vue                |        125 |          3 |         15 |        143 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\scrollList\movieScrollList.vue             | Vue                |        125 |          3 |         14 |        142 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\scrollList\newsScrollList.vue              | Vue                |        127 |          3 |         15 |        145 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\scrollList\starScrollList.vue              | Vue                |        124 |          3 |         15 |        142 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\home\watchlist.vue                              | Vue                |        377 |          0 |          7 |        384 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\menu\avatarItem.vue                             | Vue                |        106 |          0 |          2 |        108 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\filiter.vue                          | Vue                |         34 |          0 |          4 |         38 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\filiterMenu\award.vue                | Vue                |        102 |          0 |          3 |        105 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\filiterMenu\filiterCollaboration.vue | Vue                |         70 |          0 |         12 |         82 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\filiterMenu\filiterName.vue          | Vue                |        120 |          0 |          8 |        128 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\filiterMenu\filiterTitle.vue         | Vue                |        102 |          0 |         10 |        112 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\filiterMenu\foreignArea.vue          | Vue                |        252 |          0 |         10 |        262 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\filiterMenu\genre.vue                | Vue                |        266 |          1 |          3 |        270 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\filiterMenu\personAward.vue          | Vue                |         94 |          0 |          3 |         97 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\header.vue                           | Vue                |         25 |          1 |          3 |         29 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\result.vue                           | Vue                |         92 |          0 |          4 |         96 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\resultItems\compactMovieCard.vue     | Vue                |         69 |          0 |          7 |         76 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\resultItems\detialMovieCard.vue      | Vue                |        147 |          0 |         10 |        157 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\resultItems\gridDisplay.vue          | Vue                |         36 |          0 |          4 |         40 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\resultItems\gridMovieCard.vue        | Vue                |         73 |          0 |          7 |         80 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\resultItems\lineDisplay.vue          | Vue                |         49 |          0 |          4 |         53 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\movieStore\tagBar.vue                           | Vue                |        127 |          3 |         15 |        145 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\personal\Info.vue                               | Vue                |        141 |          1 |          4 |        146 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\personal\PersonalDia.vue                        | Vue                |        175 |          1 |         13 |        189 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\personal\collection.vue                         | Vue                |         52 |          0 |          5 |         57 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\personal\collectionItem.vue                     | Vue                |         10 |          0 |          1 |         11 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\personal\comment.vue                            | Vue                |         43 |          0 |          3 |         46 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\personal\commentItem.vue                        | Vue                |         10 |          0 |          1 |         11 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\personal\like.vue                               | Vue                |        136 |          2 |         15 |        153 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\personal\recent.vue                             | Vue                |         91 |          2 |          7 |        100 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\trailerPlay.vue                                 | Vue                |         65 |          0 |          9 |         74 |
+| d:\DEV\paper\formend\movie_recommendation\src\components\watchList\watchListDisplay.vue                  | Vue                |         47 |          0 |          5 |         52 |
+| d:\DEV\paper\formend\movie_recommendation\src\i18n.js                                                    | JavaScript         |         19 |          6 |          3 |         28 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\actors.js                                           | JavaScript         |        107 |          0 |          9 |        116 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\collection.js                                       | JavaScript         |         76 |         21 |          6 |        103 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\comment.js                                          | JavaScript         |         91 |          2 |          7 |        100 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\direction.js                                        | JavaScript         |         91 |          1 |          7 |         99 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\info.js                                             | JavaScript         |         16 |          1 |          1 |         18 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\like.js                                             | JavaScript         |         61 |          4 |          5 |         70 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\movie.js                                            | JavaScript         |        106 |          0 |          8 |        114 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\news.js                                             | JavaScript         |         76 |          0 |          5 |         81 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\recent.js                                           | JavaScript         |         31 |          2 |          2 |         35 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\recommend.js                                        | JavaScript         |         61 |          4 |          5 |         70 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\user.js                                             | JavaScript         |        103 |         11 |          8 |        122 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\api\watchlist.js                                        | JavaScript         |         61 |         19 |          7 |         87 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\comingSoon.js                                           | JavaScript         |        368 |          2 |          6 |        376 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\movieFiliter.js                                         | JavaScript         |        447 |          3 |         18 |        468 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\populerMovie.js                                         | JavaScript         |        368 |          2 |          6 |        376 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\request.js                                              | JavaScript         |         28 |          8 |          4 |         40 |
+| d:\DEV\paper\formend\movie_recommendation\src\js\tool.js                                                 | JavaScript         |         41 |          9 |         10 |         60 |
+| d:\DEV\paper\formend\movie_recommendation\src\langurage\zh.js                                            | JavaScript         |         28 |          1 |          7 |         36 |
+| d:\DEV\paper\formend\movie_recommendation\src\main.js                                                    | JavaScript         |         16 |          0 |          5 |         21 |
+| d:\DEV\paper\formend\movie_recommendation\src\router\index.js                                            | JavaScript         |        120 |         17 |          7 |        144 |
+| d:\DEV\paper\formend\movie_recommendation\src\store\index.js                                             | JavaScript         |         56 |          2 |          3 |         61 |
+| d:\DEV\paper\formend\movie_recommendation\src\undefined\undefined.json                                   | JSON               |          3 |          0 |          0 |          3 |
+| d:\DEV\paper\formend\movie_recommendation\src\views\AboutView.vue                                        | Vue                |          5 |          0 |          1 |          6 |
+| d:\DEV\paper\formend\movie_recommendation\src\views\ActivityView.vue                                     | Vue                |          9 |          0 |          2 |         11 |
+| d:\DEV\paper\formend\movie_recommendation\src\views\ComingSoonView.vue                                   | Vue                |         32 |          0 |          2 |         34 |
+| d:\DEV\paper\formend\movie_recommendation\src\views\CommunityView.vue                                    | Vue                |          9 |          0 |          2 |         11 |
+| d:\DEV\paper\formend\movie_recommendation\src\views\Error404View.vue                                     | Vue                |        244 |          1 |         29 |        274 |
+| d:\DEV\paper\formend\movie_recommendation\src\views\HomeView.vue                                         | Vue                |         44 |          2 |         11 |         57 |
+| d:\DEV\paper\formend\movie_recommendation\src\views\LoginView.vue                                        | Vue                |        344 |          3 |         10 |        357 |
+| d:\DEV\paper\formend\movie_recommendation\src\views\MovieStoreView.vue                                   | Vue                |         70 |          0 |         11 |         81 |
+| d:\DEV\paper\formend\movie_recommendation\src\views\PersonalView.vue                                     | Vue                |        306 |          3 |         32 |        341 |
+| d:\DEV\paper\formend\movie_recommendation\src\views\PopulerMovieView.vue                                 | Vue                |         32 |          0 |          2 |         34 |
+| d:\DEV\paper\formend\movie_recommendation\src\views\WatchListView.vue                                    | Vue                |         93 |          0 |          9 |        102 |
+| d:\DEV\paper\formend\movie_recommendation\vue.config.js                                                  | JavaScript         |         15 |          0 |          2 |         17 |
+| Total                                                                                                    |                    |     30,045 |        174 |        649 |     30,868 |
++----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

@@ -21,25 +21,25 @@ export default {
         type: '清单',
         title: '这是清单',
         url: 'https://www.w3schools.com',
-        pic: 'https://www.w3schools.com/w3images/la.jpg',
+        pic_url: 'https://www.w3schools.com/w3images/la.jpg',
         getMore: '查看更多'
       }, {
         type: '图片',
         title: '这是图片',
         url: 'https://www.w3schools.com',
-        pic: 'https://www.w3schools.com/w3images/la.jpg',
+        pic_url: 'https://www.w3schools.com/w3images/la.jpg',
         getMore: '查看更多'
       }, {
         type: '海报',
         title: '这是海报',
         url: 'https://www.w3schools.com',
-        pic: 'https://www.w3schools.com/w3images/la.jpg',
+        pic_url: 'https://www.w3schools.com/w3images/la.jpg',
         getMore: '查看更多'
       }, {
         type: '清单',
         title: '这是电影节获奖电影',
         url: 'https://www.w3schools.com',
-        pic: 'https://www.w3schools.com/w3images/la.jpg',
+        pic_url: 'https://www.w3schools.com/w3images/la.jpg',
         getMore: '查看更多'
       },
       ]

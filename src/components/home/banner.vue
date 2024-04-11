@@ -46,6 +46,7 @@
 <script>
 import NextCarouselItemVue from './carousel/nextCarouselItem.vue';
 import HomeCarouselItemVue from './carousel/homeCarouselItem.vue';
+import {info} from '@/js/api/info.js'
 
 export default {
   name: 'HomeBannerVue',
@@ -55,16 +56,16 @@ export default {
       banner: {
         index: 0,
         items: [
-          { title: 'sadhaosifhascasf-sda', subtitle: 'asfadfdsfsfc', poster: 'https://www.w3schools.com/w3images/la.jpg', pic: 'https://www.w3schools.com/w3images/la.jpg', duration: '152' },
-          { title: 'sadhsd', subtitle: 'asfadfdsfsfc', poster: 'https://www.w3schools.com/w3images/ny.jpg', pic: 'https://www.w3schools.com/w3images/ny.jpg', duration: '152' },
-          { title: 'sadha', subtitle: 'asfadfdsfsfc', poster: 'https://www.w3schools.com/w3images/chicago.jpg', pic: 'https://www.w3schools.com/w3images/chicago.jpg', duration: '152' },
-          { title: 'sadhaosifhsda', subtitle: 'asfadfdsfsfc', poster: 'https://www.w3schools.com/w3images/la.jpg', pic: 'https://www.w3schools.com/w3images/la.jpg', duration: '152' },
-          { title: 'sadhahascasf-sda', subtitle: 'asfadfdsfsfc', poster: 'https://www.w3schools.com/w3images/ny.jpg', pic: 'https://www.w3schools.com/w3images/ny.jpg', duration: '152' },
-          { title: 'sadhcasf-sda', subtitle: 'asfadfdsfsfc', poster: 'https://www.w3schools.com/w3images/chicago.jpg', pic: 'https://www.w3schools.com/w3images/chicago.jpg', duration: '152' },
-          { title: 'sf-sda', subtitle: 'asfadfdsfsfc', poster: 'https://www.w3schools.com/w3images/la.jpg', pic: 'https://www.w3schools.com/w3images/la.jpg', duration: '152' },
-          { title: 'saifhascasf-sda', subtitle: 'asfadfdsfsfc', poster: 'https://www.w3schools.com/w3images/ny.jpg', pic: 'https://www.w3schools.com/w3images/ny.jpg', duration: '152' },
-          { title: 'sadhao-sda', subtitle: 'asfadfdsfsfc', poster: 'https://www.w3schools.com/w3images/chicago.jpg', pic: 'https://www.w3schools.com/w3images/chicago.jpg', duration: '152' },
-          { title: 'sadhsifa', subtitle: 'asfadfdsfsfc', poster: 'https://www.w3schools.com/w3images/la.jpg', pic: 'https://www.w3schools.com/w3images/la.jpg', duration: '152' },
+          { title: 'sadhaosifhascasf-sda', subtitle: 'asfadfdsfsfc', poster_url: 'https://www.w3schools.com/w3images/la.jpg', pic_url: 'https://www.w3schools.com/w3images/la.jpg', duration: '152' },
+          { title: 'sadhsd', subtitle: 'asfadfdsfsfc', poster_url: 'https://www.w3schools.com/w3images/ny.jpg', pic_url: 'https://www.w3schools.com/w3images/ny.jpg', duration: '152' },
+          { title: 'sadha', subtitle: 'asfadfdsfsfc', poster_url: 'https://www.w3schools.com/w3images/chicago.jpg', pic_url: 'https://www.w3schools.com/w3images/chicago.jpg', duration: '152' },
+          { title: 'sadhaosifhsda', subtitle: 'asfadfdsfsfc', poster_url: 'https://www.w3schools.com/w3images/la.jpg', pic_url: 'https://www.w3schools.com/w3images/la.jpg', duration: '152' },
+          { title: 'sadhahascasf-sda', subtitle: 'asfadfdsfsfc', poster_url: 'https://www.w3schools.com/w3images/ny.jpg', pic_url: 'https://www.w3schools.com/w3images/ny.jpg', duration: '152' },
+          { title: 'sadhcasf-sda', subtitle: 'asfadfdsfsfc', poster_url: 'https://www.w3schools.com/w3images/chicago.jpg', pic_url: 'https://www.w3schools.com/w3images/chicago.jpg', duration: '152' },
+          { title: 'sf-sda', subtitle: 'asfadfdsfsfc', poster_url: 'https://www.w3schools.com/w3images/la.jpg', pic_url: 'https://www.w3schools.com/w3images/la.jpg', duration: '152' },
+          { title: 'saifhascasf-sda', subtitle: 'asfadfdsfsfc', poster_url: 'https://www.w3schools.com/w3images/ny.jpg', pic_url: 'https://www.w3schools.com/w3images/ny.jpg', duration: '152' },
+          { title: 'sadhao-sda', subtitle: 'asfadfdsfsfc', poster_url: 'https://www.w3schools.com/w3images/chicago.jpg', pic_url: 'https://www.w3schools.com/w3images/chicago.jpg', duration: '152' },
+          { title: 'sadhsifa', subtitle: 'asfadfdsfsfc', poster_url: 'https://www.w3schools.com/w3images/la.jpg', pic_url: 'https://www.w3schools.com/w3images/la.jpg', duration: '152' },
         ]
       }
     };
@@ -90,7 +91,20 @@ export default {
         this.$refs.main_carousel.setActiveItem(this.current)
       }
       return prev
+    },
+
+    load() {
+      info().then(res => {
+        // console.log(res)
+        this.banner.items = res
+      }).catch(err => {
+        console.log(err)
+      })
     }
+  },
+
+  mounted() {
+    this.load()
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <el-card :body-style="{ height: '25vh' }">
+  <el-card :body-style="{ height: '27vh' }">
     <el-container style="height: 100%;">
       <el-aside>
         <el-image :src="poster_url" :preview-src-list="[poster_url]" fit="cover" style="height: 98%;" />
@@ -25,23 +25,23 @@
             <div>
               <el-rate
                        v-model="mrating"
-                       :max="10"
+                       :max="5"
                        disabled
                        show-text
                        allow-half
-                       :texts='["A Complete Flop", "Misses the Mark", "Leaves Much to Be Desired", "Run-of-the-Mill", "So-So", "Has Its Moments", "Worth the Watch", "Hits the Nail on the Head", "A Game Changer", "A Masterpiece"]' />
+                       :texts='["A Complete Flop", "Run-of-the-Mill", "Has Its Moments", "Hits the Nail on the Head", "A Masterpiece"]' />
             </div>
           </el-col>
           <el-col>
             <span>
-              category:
+              类型:
             </span>
-            <span
+            <a
                   v-for="(item, index) in category"
                   :key="index"
                   class="mvcategory">
               {{ item }}
-            </span>
+            </a>
           </el-col>
         </div>
         <div class="mm">
@@ -52,22 +52,22 @@
         <div class="mb">
           <el-col>
             <span>
-              director:
+              导演:
             </span>
-            <span class="mvcategory">
+            <a class="mvcategory">
               {{ director }}
-            </span>
+            </a>
           </el-col>
           <el-col>
             <span>
-              cast:
+              参演:
             </span>
-            <span
-                  v-for="(item,index) in stars"
+            <a
+                  v-for="(item,index) in actors"
                   :key="index"
                   class="mvcategory">
               {{ item }}
-            </span>
+            </a>
           </el-col>
         </div>
       </el-main>
@@ -150,7 +150,8 @@ export default {
 }
 
 .mm {
-  font-size: 1rem;
+  margin-top: .5rem;
+  font-size: .75rem;
   width: 100%;
 }
 </style>
